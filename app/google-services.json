@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "915278205944",
+    "firebase_url": "https://library-project-efd46-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "library-project-efd46",
+    "storage_bucket": "library-project-efd46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915278205944:android:d666683bec8657e5c33c0d",
+        "android_client_info": {
+          "package_name": "com.example.alexandria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915278205944-vvum9jv0c2mkkpc54l8himcrgns133r9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexandria2",
+            "certificate_hash": "751aa40471a23eecb9ce447ff15f676f83855a93"
+          }
+        },
+        {
+          "client_id": "915278205944-p8kqlreekqnacb7hs0klvk8rdnrfjecl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoB7cTaKOgTTjPSCdzCqW-kti4ixNC9gY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915278205944-p8kqlreekqnacb7hs0klvk8rdnrfjecl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915278205944:android:dacf6eee192009c1c33c0d",
+        "android_client_info": {
+          "package_name": "com.alexandriareal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915278205944-p77oltu9nlpickac583alpk5oq32bvbs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexandriareal",
+            "certificate_hash": "751aa40471a23eecb9ce447ff15f676f83855a93"
+          }
+        },
+        {
+          "client_id": "915278205944-p8kqlreekqnacb7hs0klvk8rdnrfjecl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoB7cTaKOgTTjPSCdzCqW-kti4ixNC9gY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915278205944-p8kqlreekqnacb7hs0klvk8rdnrfjecl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
