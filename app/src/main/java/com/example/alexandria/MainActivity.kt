@@ -30,6 +30,11 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import android.os.PowerManager;
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Shader
+import android.widget.ImageView
 
 
 
@@ -145,6 +150,22 @@ class ProfileActivity: AppCompatActivity() {
         }
     }
 
+    private fun getCircleBitmap(bitmap: Bitmap): Bitmap {
+        val output = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(output)
+        val paint = Paint()
+        val shader = BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+
+        paint.shader = shader
+        paint.isAntiAlias = true
+
+        val radius = bitmap.width.coerceAtMost(bitmap.height) / 2.0f
+        canvas.drawCircle(bitmap.width / 2.0f, bitmap.height / 2.0f, radius, paint)
+
+        return output
+    }
+
+    // Update your onActivityResult function to use the circular bitmap
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -152,13 +173,16 @@ class ProfileActivity: AppCompatActivity() {
                 GALLERY_REQUEST_CODE -> {
                     // Handle the image chosen from the gallery
                     val selectedImage = data?.data
-                    profile.setImageURI(selectedImage)
+                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, selectedImage)
+                    val circularBitmap = getCircleBitmap(bitmap)
+                    profile.setImageBitmap(circularBitmap)
                 }
                 CAMERA_REQUEST_CODE -> {
                     // Handle the image captured from the camera
                     val photo = data?.extras?.get("data")
                     if (photo is Bitmap) {
-                        profile.setImageBitmap(photo)
+                        val circularBitmap = getCircleBitmap(photo)
+                        profile.setImageBitmap(circularBitmap)
                     }
                 }
             }
@@ -458,11 +482,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         proximitySensor?.let {
             if (event.values[0] < it.maximumRange) {
                 // Detected something nearby
-                Toast.makeText(this, "Near", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "Near", Toast.LENGTH_SHORT).show()
                 turnOffScreen()
             } else {
                 // Nothing is nearby
-                Toast.makeText(this, "Far", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "Far", Toast.LENGTH_SHORT).show()
                 turnOnScreen()
             }
         }
