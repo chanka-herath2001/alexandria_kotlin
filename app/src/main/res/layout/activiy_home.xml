@@ -56,7 +56,8 @@
             android:text="All"
             android:textColor="@color/light_blue"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="onCategoryClick"/>
 
         <!-- Category 3 -->
         <TextView
@@ -67,7 +68,8 @@
             android:text="Fantasy"
             android:textColor="@color/light_blue"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="onCategoryClick"/>
 
         <TextView
             android:id="@+id/category3Button"
@@ -77,7 +79,8 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:textColor="@color/light_blue"/>
+            android:textColor="@color/light_blue"
+            android:onClick="onCategoryClick"/>
 
         <!-- Category 4 -->
         <TextView
@@ -88,7 +91,8 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:textColor="@color/light_blue"/>
+            android:textColor="@color/light_blue"
+            android:onClick="onCategoryClick"/>
 
     </LinearLayout>
 

@@ -319,6 +319,7 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var bookList: ArrayList<Book>
+    private lateinit var allBooks: ArrayList<Book>
     private lateinit var bookAdapter: BookAdapter
 
 
@@ -332,6 +333,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         bookList = ArrayList()
+        allBooks = ArrayList()
         bookAdapter = BookAdapter(this, bookList)
         recyclerView.adapter = bookAdapter
 
@@ -339,10 +341,12 @@ class HomeActivity : AppCompatActivity() {
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 bookList.clear()
+                allBooks.clear()
                 for (dataSnapshot in snapshot.children) {
                     val book = dataSnapshot.getValue(Book::class.java)
                     if (book != null) {
                         bookList.add(book)
+                        allBooks.add(book)
                     }
                 }
                 bookAdapter.notifyDataSetChanged()
@@ -359,6 +363,8 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
 
@@ -392,6 +398,30 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    fun onCategoryClick(view: View) {
+        when (view.id) {
+            R.id.category1Button -> filterBooksByCategory("All")
+            R.id.category2Button -> filterBooksByCategory("Fantasy")
+            R.id.category3Button -> filterBooksByCategory("Sci-Fi")
+            R.id.category4Button -> filterBooksByCategory("Romance")
+            // Add more cases if you have additional categories
+        }
+    }
+
+    private fun filterBooksByCategory(genre: String) {
+        // Implement filtering logic based on the selected category
+        bookList.clear()
+        if (genre == "All") {
+            // Show all books
+            bookList.addAll(allBooks)
+        } else {
+            // Filter books based on the selected category
+            bookList.addAll(allBooks.filter { it.genre == genre })
+        }
+
+        // Update your RecyclerView with the filtered books
+        bookAdapter.notifyDataSetChanged()
+    }
 
 
 }

@@ -35,6 +35,12 @@ class BookAdapter(private val context: Context, private val bookList: ArrayList<
         return bookList.size
     }
 
+    fun updateData(newData: List<Book>) {
+        bookList.clear()
+        bookList.addAll(newData)
+        notifyDataSetChanged()
+    }
+
     inner class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(book: Book) {
             Glide.with(context)
