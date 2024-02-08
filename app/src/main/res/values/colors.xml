@@ -7,4 +7,5 @@
     <color name="dark_blue">#0C134F</color>
     <color name="off_white">#FFFBF5</color>
     <color name="bottom_nav">#D4ADFC</color>
+    <color name="red_logout">#D80032</color>
 </resources>

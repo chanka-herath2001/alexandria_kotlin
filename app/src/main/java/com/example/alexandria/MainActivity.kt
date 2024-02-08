@@ -148,6 +148,8 @@ class ProfileActivity: AppCompatActivity() {
                 else -> false
             }
         }
+
+
     }
 
     private fun getCircleBitmap(bitmap: Bitmap): Bitmap {
@@ -187,6 +189,16 @@ class ProfileActivity: AppCompatActivity() {
                 }
             }
         }
+    }
+    fun logoutUser(view: View) {
+        // Sign out the user from Firebase
+        FirebaseAuth.getInstance().signOut()
+
+        // Redirect the user to MainActivity
+        val intent = Intent(this@ProfileActivity, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 }
 
